@@ -2,7 +2,7 @@ const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 
 let game = {
-    level : 10,
+    level : 20,
     score : 0,
     startWidth : 0,
     startHeight : 30
@@ -170,6 +170,10 @@ function brickTouch(_data){
 }
 
 function playGame(){
+    if(brick.row * brick.line * brick.score == game.score){
+        clearInterval(playBall);
+    }
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawGame();
 
